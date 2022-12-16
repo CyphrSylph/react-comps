@@ -1,4 +1,5 @@
 import Button from './Button';
+import { IoWarningOutline, IoSparklesOutline } from "react-icons/io5";
 
 function App() {
     return( 
@@ -10,13 +11,17 @@ function App() {
                 <Button secondary rounded>Secondary</Button>
             </div>
             <div>
-                <Button neutral outline>Neutral</Button>
+                <Button neutral rounded>Neutral</Button>
             </div>
             <div>
-                <Button success outline>Success</Button>
+                <Button success rounded>
+                    <IoSparklesOutline /> Success
+                </Button>
             </div>
             <div>
-                <Button warning rounded>Warning</Button>
+                <Button warning rounded outline>
+                    <IoWarningOutline /> Warning
+                </Button>
             </div>
         </div>
     );

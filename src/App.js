@@ -2,25 +2,58 @@ import Button from './Button';
 import { IoWarningOutline, IoSparklesOutline } from "react-icons/io5";
 
 function App() {
+    const handleClick = () => {
+        console.log('Clicked');
+    };
+
     return( 
         <div>
             <div>
-                <Button primary rounded>Primary</Button>
-            </div>
-            <div>
-                <Button secondary rounded>Secondary</Button>
-            </div>
-            <div>
-                <Button neutral rounded>Neutral</Button>
-            </div>
-            <div>
-                <Button success rounded>
-                    <IoSparklesOutline /> Success
+                <Button 
+                    primary 
+                    rounded 
+                    className='mb-5' 
+                    onClick={handleClick}>
+                        Primary
                 </Button>
             </div>
             <div>
-                <Button warning rounded outline>
-                    <IoWarningOutline /> Warning
+                <Button 
+                    secondary 
+                    rounded
+                    className='mb-5' 
+                    onClick={handleClick}>
+                        Secondary
+                </Button>
+            </div>
+            <div>
+                <Button 
+                    neutral 
+                    rounded
+                    className='mb-5' 
+                    onClick={handleClick}>
+                        Neutral
+                </Button>
+            </div>
+            <div>
+                <Button 
+                    success 
+                    rounded
+                    className='mb-5' 
+                    onClick={handleClick}>
+                    <IoSparklesOutline /> 
+                        Success
+                </Button>
+            </div>
+            <div>
+                <Button 
+                    warning 
+                    rounded 
+                    outline
+                    className='mb-5' 
+                    onClick={handleClick}>
+                    <IoWarningOutline /> 
+                        Warning
                 </Button>
             </div>
         </div>

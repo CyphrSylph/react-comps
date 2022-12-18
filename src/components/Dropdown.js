@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TiChevronLeftOutline } from "react-icons/ti";
+import Panel from "./Panel";
 
 
 function Dropdown({ options, value, onChange }) {
@@ -16,7 +17,7 @@ function Dropdown({ options, value, onChange }) {
 
     const renderedOpts = options.map((option) => {
         return (
-            <div className="hover:bg-sky-100 rounder cursor-pointer p-1"
+            <div className="hover:bg-orange-100 rounder cursor-pointer p-1"
             onClick={() => handleOptClick(option)} key={option.value}>
                 {option.label}
             </div>
@@ -25,12 +26,12 @@ function Dropdown({ options, value, onChange }) {
 
     return (
         <div className="w-48 relative">  
-            <div className="flex justify-between itemso0center cursor-pointer border rounded p-3 shadow bg-white w-full" 
+            <Panel className="flex justify-between items-center cursor-pointer" 
             onClick={handleClick}>
                 {value?.label || 'Select Element'}
                 <TiChevronLeftOutline className="text-lg -rotate-90" />
-            </div>
-            {open && <div className="absolute top-full border rounded p-3 shadow bg-white w-full">{renderedOpts}</div>} 
+            </Panel>
+            {open && <Panel className="absolute top-full">{renderedOpts}</Panel>} 
         </div>
     );
 }

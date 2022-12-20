@@ -1,10 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { TiChevronLeftOutline } from "react-icons/ti";
 import Panel from "./Panel";
 
 
 function Dropdown({ options, value, onChange }) {
     const [open, setOpen] = useState(false);
+    const divElm = useRef();
+
+    useEffect(() => {
+        const handler = (e) => {
+            if(!divElm.current){
+                return;
+            }
+            if(!divElm.current.contains(e.target)){
+                setOpen(false);
+            }
+        };
+        document.addEventListener('click', handler, true);
+
+        return () => {
+            document.removeEventListener('click', handler);
+        };
+    },[]);
 
     const handleClick = () => {
         setOpen(!open);
@@ -25,7 +42,7 @@ function Dropdown({ options, value, onChange }) {
     });
 
     return (
-        <div className="w-48 relative">  
+        <div ref={divElm} className="w-48 relative">  
             <Panel className="flex justify-between items-center cursor-pointer" 
             onClick={handleClick}>
                 {value?.label || 'Select Element'}
